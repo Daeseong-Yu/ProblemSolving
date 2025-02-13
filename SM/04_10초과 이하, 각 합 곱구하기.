@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 int solution(int num_list[], size_t num_list_len) {
+	int result = 0;
 	if (num_list_len >= 11) {
-		int result = 0;
 		for (int i = 0; i < num_list_len; i++) {
 			result += num_list[i];
 		}
+			
 	}
 	else {
 		int result = 1;
-		for (int j = 0; j > num_list_len; j++) {
+		for (int j = 0; j < num_list_len; j++) {
 			result *= num_list[j];
 		}
-		return result;	
 	}
+	return result;
+}
