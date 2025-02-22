@@ -1,0 +1,20 @@
+void AddTask(Queue* queue, const char* taskName, int priorityLevel) {
+    Task* newTask = (Task*)malloc(sizeof(Task));
+    if (newTask == NULL) {
+        printf("Memory allocation failed.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    strcpy(newTask->Name, taskName);
+    newTask->PriorityLevel = priorityLevel;
+    newTask->next = NULL;
+
+    if (queue->rear == NULL) {           //empty queue
+        queue->front = newTask;
+        queue->rear = newTask;
+    } else {
+        queue->rear->next = newTask;
+        queue->rear = newTask;
+    }
+    printf("Task '%s' added successfully!\n", taskName);
+}
